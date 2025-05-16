@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Report Modal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .modal-container {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .modal-close {
+            font-size: 20px;
+            color: #888;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: #555;
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .modal-form select,
+        .modal-form input,
+        .modal-form button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .modal-form button {
+            background-color: #4a67f5;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .modal-form button:hover {
+            background-color: #3a57d5;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal-container">
+        <div class="modal-header">
+            <h2>Send Report</h2>
+            <span class="modal-close">&times;</span>
+        </div>
+        <form class="modal-form">
+            <select name="violation_id" required>
+                <option value="" disabled selected>Violation ID</option>
+                <option value="v1">Violation 1</option>
+                <option value="v2">Violation 2</option>
+                <option value="v3">Violation 3</option>
+            </select>
+            <input type="text" name="student_id" placeholder="Student ID" required />
+            <select name="department" required>
+                <option value="" disabled selected>Choose Department</option>
+                <option value="dept1">Department 1</option>
+                <option value="dept2">Department 2</option>
+                <option value="dept3">Department 3</option>
+            </select>
+            <button type="submit">Send Report</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Violation Feedback</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9ff;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-container {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .video {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .video-play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .video-play-button::before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 15px solid #4e46dc;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #f0f2ff;
+      border-radius: 8px;
+    }
+
+    .profile-info {
+      display: flex;
+      align-items: center;
+    }
+
+    .profile-info img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .profile-info div {
+      font-size: 14px;
+    }
+
+    .feedback-section {
+      margin-top: 20px;
+    }
+
+    .feedback-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .feedback-header img {
+      margin-right: 10px;
+    }
+
+    .feedback-input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .feedback-button {
+      background-color: #4e46dc;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .feedback-button:hover {
+      background-color: #3b37b2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="video-container">
+      <img src="https://via.placeholder.com/800x450" alt="Violation Video" class="video">
+      <div class="video-play-button"></div>
+    </div>
+    <div class="profile">
+      <div class="profile-info">
+        <img src="https://via.placeholder.com/50" alt="Profile Picture">
+        <div>
+          <div><strong>Ali Raza</strong></div>
+          <div>Employee Id: 32211</div>
+          <div>Violation Id: 3321</div>
+        </div>
+      </div>
+    </div>
+    <div class="feedback-section">
+      <div class="feedback-header">
+        <img src="https://via.placeholder.com/20" alt="Feedback Icon">
+        <h3>Feedback</h3>
+      </div>
+      <textarea class="feedback-input" rows="4" placeholder="Share Your Thoughts"></textarea>
+      <button class="feedback-button">Post</button>
+    </div>
+  </div>
+</body>
+</html>

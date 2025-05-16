@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Member Modal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="relative min-h-screen flex flex-col items-center justify-center">
+        <!-- Navbar -->
+        <nav class="w-full bg-white shadow-md p-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <div class="text-xl font-bold text-blue-600">Logoipsum</div>
+                <ul class="flex space-x-6 text-gray-700">
+                    <li><a href="#" class="hover:text-blue-600">Dashboard</a></li>
+                    <li><a href="#" class="hover:text-blue-600">Add User</a></li>
+                    <li><a href="#" class="hover:text-blue-600">Generate Analytics</a></li>
+                    <li><a href="#" class="hover:text-blue-600">Send Report</a></li>
+                    <li><a href="#" class="hover:text-blue-600">Previous Reports</a></li>
+                </ul>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="relative">
+                    <span class="absolute top-0 right-0 bg-red-500 text-white rounded-full w-4 h-4 text-xs flex items-center justify-center">1</span>
+                    <svg class="w-6 h-6 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405M15 17H9m6 0a2.5 2.5 0 001.405-4.595M15 17a2.5 2.5 0 01-1.405-4.595M15 3a9 9 0 11-6 15.3" />
+                    </svg>
+                </button>
+                <div class="flex items-center">
+                    <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">U</div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Add Member Modal -->
+        <div class="absolute bg-white p-8 rounded-lg shadow-lg w-96 top-20">
+            <button class="absolute top-3 right-3 text-gray-500 hover:text-red-600">&times;</button>
+            <div class="flex flex-col items-center">
+                <!-- Icon -->
+                <div class="bg-gray-200 p-4 rounded-full mb-4">
+                    <svg class="w-12 h-12 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5a4 4 0 11-8 0 4 4 0 118 0zm5 6.5H7v2h10v-2zm-7 0v-1a3 3 0 013-3 3 3 0 013 3v1h-6z" />
+                    </svg>
+                </div>
+                <!-- Form Title -->
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Add Member</h2>
+                <form action="#" method="POST" class="w-full space-y-4">
+                    <input type="text" placeholder="Full Name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <input type="email" placeholder="Email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <div class="flex space-x-2">
+                        <select class="w-1/2 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <option value="">Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <input type="text" placeholder="ID" class="w-1/2 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <input type="text" placeholder="Contact" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <div class="flex flex-col items-center border-dashed border-2 rounded-lg p-4">
+                        <p class="text-gray-500">Drop images here or <a href="#" class="text-blue-500 hover:underline">browse files</a></p>
+                    </div>
+                    <select class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <option value="">Assign Role</option>
+                        <option value="admin">Admin</option>
+                        <option value="user">User</option>
+                    </select>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Add User</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

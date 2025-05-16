@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications with Feedback Modal</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9ff;
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 30px;
+    }
+
+    .notifications {
+      flex: 3;
+    }
+
+    .notifications h1 {
+      margin-bottom: 20px;
+    }
+
+    .notification-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      margin-bottom: 10px;
+      background-color: #e9ecff;
+      border-radius: 8px;
+    }
+
+    .notification-item.red {
+      background-color: #fde8e8;
+    }
+
+    .notification-item span {
+      font-weight: bold;
+      color: #5865f2;
+    }
+
+    .notification-item button {
+      background-color: transparent;
+      border: none;
+      color: #5865f2;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .notification-item button:hover {
+      text-decoration: underline;
+    }
+
+    .profile {
+      flex: 1;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile h2 {
+      margin-bottom: 10px;
+    }
+
+    .profile p {
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .profile button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #5865f2;
+      background-color: #5865f2;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .profile button.logout {
+      background-color: transparent;
+      color: #5865f2;
+      border: 1px solid #5865f2;
+    }
+
+    .profile button:hover {
+      background-color: #4753c5;
+      color: #fff;
+    }
+
+    .profile button.logout:hover {
+      background-color: #e9ecff;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      width: 400px;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .modal-header h2 {
+      font-size: 20px;
+    }
+
+    .modal-header button {
+      background-color: transparent;
+      border: none;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .modal-header button:hover {
+      color: #ff4d4f;
+    }
+
+    .modal form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal form input,
+    .modal form textarea,
+    .modal form select {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .modal form input[type="checkbox"] {
+      margin-right: 10px;
+    }
+
+    .modal form button {
+      padding: 10px;
+      border: none;
+      background-color: #5865f2;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .modal form button:hover {
+      background-color: #4753c5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Notifications Section -->
+    <div class="notifications">
+      <h1>🔔 Notifications</h1>
+      <div class="notification-item">
+        <div>
+          <span>Violation Id: 3321</span> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        </div>
+        <button>Show Details</button>
+      </div>
+      <div class="notification-item">
+        <div>
+          <span>Violation Id: 3321</span> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        </div>
+        <button>Show Details</button>
+      </div>
+      <div class="notification-item red">
+        <div>
+          <span>Violation Id: 3321</span> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        </div>
+        <button>Show Details</button>
+      </div>
+    </div>
+
+    <!-- Profile Section -->
+    <div class="profile">
+      <h2>Ali Raza</h2>
+      <p>example@email.com</p>
+      <p>Employee Id: 32211</p>
+      <button id="feedback-button">Violation Feedback</button>
+      <button class="logout">Log Out</button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="feedback-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Feedback</h2>
+        <button id="close-modal">×</button>
+      </div>
+      <form>
+        <select required>
+          <option value="" disabled selected>Violation ID</option>
+          <option value="3321">3321</option>
+          <option value="3322">3322</option>
+        </select>
+        <input type="text" placeholder="User ID" required />
+        <textarea placeholder="Share Your Thoughts" rows="4"></textarea>
+        <label>
+          <input type="checkbox" /> Send Request
+        </label>
+        <button type="submit">Done</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const feedbackButton = document.getElementById("feedback-button");
+    const feedbackModal = document.getElementById("feedback-modal");
+    const closeModal = document.getElementById("close-modal");
+
+    feedbackButton.addEventListener("click", () => {
+      feedbackModal.style.display = "flex";
+    });
+
+    closeModal.addEventListener("click", () => {
+      feedbackModal.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+      if (event.target === feedbackModal) {
+        feedbackModal.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>

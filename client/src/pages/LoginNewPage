@@ -1,0 +1,165 @@
+import React from "react";
+import styled from "styled-components";
+
+const StyledEllipse9 = styled.div`
+  width: 2040px;
+  height: 1198px;
+  left: -60px;
+  top: 599px;
+  position: absolute;
+  background: white;
+  border-radius: 9999px;
+`;
+
+const StyledEllipse10 = styled.div`
+  width: 2040px;
+  height: 1198px;
+  left: -60px;
+  top: 599px;
+  position: absolute;
+  background: white;
+  border-radius: 9999px;
+`;
+
+const StyledRectangle2 = styled.div`
+  width: 388px;
+  height: 449px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  background: white;
+  box-shadow: 5px 5px 52px -12px rgba(51, 51, 51, 0.24);
+  border-radius: 16px;
+`;
+
+const StyledForgotpasswordspan = styled.span`
+  color: #3f4299;
+  font-size: 12px;
+  font-family: Open Sans;
+  font-weight: 600;
+  line-height: 12px;
+  word-wrap: break-word;
+  position: absolute;
+  top: 320px;
+  left: 30px;
+`;
+
+const StyledButtontextspan = styled.span`
+  color: white;
+  font-size: 16px;
+  font-family: Open Sans;
+  font-weight: 700;
+  line-height: 18px;
+  word-wrap: break-word;
+`;
+
+const StyledAdminloginspan = styled.span`
+  color: black;
+  font-size: 20px;
+  font-family: Open Sans;
+  font-weight: 600;
+  word-wrap: break-word;
+  position: absolute;
+  top: 40px;
+`;
+
+const StyledLogintoyouraccountspan = styled.span`
+  color: #505050;
+  font-size: 16px;
+  font-family: Open Sans;
+  font-weight: 400;
+  line-height: 20px;
+  word-wrap: break-word;
+  position: absolute;
+  top: 80px;
+`;
+
+const StyledVector = styled.div`
+  width: 50px;
+  height: 50px;
+  background: #3f4299;
+  border-radius: 50%;
+`;
+
+const StyledButton = styled.button`
+  width: 328px;
+  height: 48px;
+  position: absolute;
+  top: 345px;
+  left: 30px;
+  background: #3f4299;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledFrame17 = styled.div`
+  width: 328px;
+  height: 48px;
+  position: absolute;
+  top: 191px;
+  left: 30px;
+  background: white;
+  box-shadow: 0px 0px 0px 2px rgba(63, 66, 153, 0.16);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+`;
+
+const StyledFrame18 = styled.div`
+  width: 328px;
+  height: 48px;
+  position: absolute;
+  top: 255px;
+  left: 30px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #bab6b6;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+`;
+
+const StyledPassVisible = styled.div`
+  width: 14px;
+  height: 14px;
+  margin-left: auto;
+  margin-right: 10px;
+  background: #bab6b6;
+  border-radius: 50%;
+`;
+
+const StyledLogIn = styled.div`
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  background: #f2f3ff;
+`;
+
+export const LogIn = () => {
+  return (
+    <StyledLogIn>
+      <StyledEllipse9 />
+      <StyledEllipse10 />
+      <div>
+        <StyledRectangle2 />
+        <StyledForgotpasswordspan>Forgot Password?</StyledForgotpasswordspan>
+        <StyledButton>
+          <StyledButtontextspan>Log In</StyledButtontextspan>
+        </StyledButton>
+        <StyledAdminloginspan>Admin Log In</StyledAdminloginspan>
+        <StyledLogintoyouraccountspan>Log In to your account</StyledLogintoyouraccountspan>
+        <StyledFrame17>
+          <span>example@email.com</span>
+        </StyledFrame17>
+        <StyledFrame18>
+          <span>Enter your password</span>
+          <StyledPassVisible />
+        </StyledFrame18>
+      </div>
+    </StyledLogIn>
+  );
+};

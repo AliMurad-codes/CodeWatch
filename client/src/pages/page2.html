@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Log In</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-blue-50 h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-96 text-center">
+        <!-- Logo -->
+        <div class="mb-6">
+            <div class="bg-blue-600 w-12 h-12 mx-auto rounded-full"></div>
+        </div>
+        <!-- Title -->
+        <h2 class="text-xl font-bold mb-2">Admin Log In</h2>
+        <p class="text-gray-500 mb-6">Log in to your account</p>
+        <!-- Form -->
+        <form action="#" method="POST">
+            <div class="mb-4">
+                <input type="email" placeholder="example@email.com" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div class="mb-4 relative">
+                <input type="password" placeholder="Enter your password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                <a href="#" class="absolute right-3 top-2 text-sm text-blue-500 hover:underline">Forgot Password?</a>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Log In</button>
+        </form>
+    </div>
+</body>
+</html>

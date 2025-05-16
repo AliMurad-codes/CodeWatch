@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .modal-container {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .modal-close {
+            font-size: 20px;
+            color: #888;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: #555;
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .modal-form select,
+        .modal-form input,
+        .modal-form button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .modal-form button {
+            background-color: #4a67f5;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .modal-form button:hover {
+            background-color: #3a57d5;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md p-4 flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <div class="text-xl font-bold text-blue-600">CodeWatch</div>
+            <ul class="flex space-x-6">
+                <li><a href="#" class="text-gray-700 hover:text-blue-600">Dashboard</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-blue-600" id="add-user-btn">Add User</a></li>
+                <li><a href="./page5.html" class="text-gray-700 hover:text-blue-600">Generate Analytics</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-blue-600" id="send-report-btn">Send Report</a></li>
+                <li><a href="./page8.html" class="text-gray-700 hover:text-blue-600">Previous Reports</a></li>
+            </ul>
+        </div>
+        <div class="flex items-center space-x-4">
+            <a href="./page6.html"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 20">
+                <path d="M12.133 10.632v-1.8A5.406 5.406 0 0 0 7.979 3.57.946.946 0 0 0 8 3.464V1.1a1 1 0 0 0-2 0v2.364a.946.946 0 0 0 .021.106 5.406 5.406 0 0 0-4.154 5.262v1.8C1.867 13.018 0 13.614 0 14.807 0 15.4 0 16 .538 16h12.924C14 16 14 15.4 14 14.807c0-1.193-1.867-1.789-1.867-4.175ZM3.823 17a3.453 3.453 0 0 0 6.354 0H3.823Z"></path>
+            </svg></a>
+            <button class="text-gray-700 hover:text-blue-600"><a href="./page2.html">Log out </a></button>
+            <div class="bg-gray-300 w-8 h-8 rounded-full flex items-center justify-center text-sm">U</div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="p-6">
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-4 gap-4 mb-6">
+            <div class="bg-white p-4 rounded shadow-md">
+                <div class="text-lg font-bold">15,565</div>
+                <div class="text-sm text-green-500">+5% than last month</div>
+                <div class="h-12 bg-gray-100 mt-2"></div>
+            </div>
+            <div class="bg-white p-4 rounded shadow-md">
+                <div class="text-lg font-bold">9,454</div>
+                <div class="text-sm text-red-500">-5% than last month</div>
+                <div class="h-12 bg-gray-100 mt-2"></div>
+            </div>
+            <div class="bg-white p-4 rounded shadow-md">
+                <div class="text-lg font-bold">15,565</div>
+                <div class="text-sm text-green-500">+5% than last month</div>
+                <div class="h-12 bg-gray-100 mt-2"></div>
+            </div>
+            <div class="bg-white p-4 rounded shadow-md">
+                <div class="text-lg font-bold">9,454</div>
+                <div class="text-sm text-red-500">-5% than last month</div>
+                <div class="h-12 bg-gray-100 mt-2"></div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="grid grid-cols-3 gap-6 mb-6">
+            <div class="p-4 rounded " style="background-image: url(./image1.png); background-size: contain; background-repeat: no-repeat; height: 475px;">
+                <!-- <div class="text-lg font-bold mb-4">Chart Title Here</div>
+                <div class="h-48 bg-gray-100"></div> -->
+            </div>
+            <div class=" p-4 col-span-2 rounded " style="background-image: url(./image2.png); background-size:cover; background-repeat: no-repeat; height: 475px;">
+                <!-- <div class="text-lg font-bold mb-4">Chart Title Here</div>
+                <div class="h-48 bg-gray-100"></div> -->
+            </div>
+        </div>
+
+        <!-- Images Carousel -->
+        <div class="bg-white p-4 rounded shadow-md mb-6">
+            <div class="grid grid-cols-4 gap-2">
+                <div class="h-32 bg-gray-200" style="background-image: url(./image.png); background-size:cover; background-repeat: no-repeat;"></div>
+                <div class="h-32 bg-gray-200" style="background-image: url(./image.png); background-size:cover; background-repeat: no-repeat;"></div>
+                <div class="h-32 bg-gray-200" style="background-image: url(./image.png); background-size:cover; background-repeat: no-repeat;"></div>
+                <div class="h-32 bg-gray-200" style="background-image: url(./image.png); background-size:cover; background-repeat: no-repeat;"></div>
+            </div>
+        </div>
+
+        <!-- Video Section -->
+        <div class="bg-white p-4 rounded shadow-md mb-6">
+            <div class="h-64 bg-gray-300 flex items-center justify-center" style="background-image: url(./image3.png); background-size: fit; background-repeat: no-repeat;">
+                <button class="bg-blue-600 text-white px-4 py-2 rounded-full">Play</button>
+            </div>
+        </div>
+
+        <!-- Footer Charts -->
+        <div class="grid grid-cols-3 gap-6">
+            <div class="bg-white p-4 rounded shadow-md" style="background-image: url(./image4.png); background-size: contain; background-repeat: no-repeat; height: 270px;">
+                <!-- <div class="text-lg font-bold mb-4">Chart Title</div>
+                <div class="h-32 bg-gray-100 mb-4"></div>
+                <div class="text-sm">This Week</div> -->
+            </div>
+            <div class="bg-white col-span-2 p-4 rounded shadow-md" style="background-image: url(./image5.png); background-size: cover; background-repeat: no-repeat; height: 270px;">
+                <!-- <div class="text-lg font-bold mb-4">2025 Monday First</div>
+                <div class="h-32 bg-gray-100"></div> -->
+            </div>
+        </div>
+
+        <div id="add-user-modal" class=" fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50" style="display: none;" >
+            <div class="relative bg-white p-8 rounded-lg shadow-lg w-96">
+                <button id="close-modal-btn" class="absolute top-3 right-3 text-gray-500 hover:text-red-600">&times;</button>
+                <div class="flex flex-col items-center">
+                    <!-- Icon -->
+                    <div class="bg-gray-200 p-4 rounded-full mb-4">
+                        <svg class="w-12 h-12 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5a4 4 0 11-8 0 4 4 0 118 0zm5 6.5H7v2h10v-2zm-7 0v-1a3 3 0 013-3 3 3 0 013 3v1h-6z" />
+                        </svg>
+                    </div>
+                    <!-- Form Title -->
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">Add Member</h2>
+                    <form action="#" method="POST" class="w-full space-y-4">
+                        <input type="text" placeholder="Full Name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <input type="email" placeholder="Email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <div class="flex space-x-2">
+                            <select class="w-1/2 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <option value="">Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                            <input type="text" placeholder="ID" class="w-1/2 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <input type="text" placeholder="Contact" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <div class="flex flex-col items-center border-dashed border-2 rounded-lg p-4">
+                            <p class="text-gray-500">Drop images here or <a href="#" class="text-blue-500 hover:underline">browse files</a></p>
+                        </div>
+                        <select class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <option value="">Assign Role</option>
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                        </select>
+                        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Add User</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Send Report Modal -->
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal" id="send-report-modal">
+            <div class="modal-header">
+                <h2>Send Report</h2>
+                <span class="modal-close" id="modal-close">&times;</span>
+            </div>
+            <form class="modal-form">
+                <select name="violation_id" required>
+                    <option value="" disabled selected>Violation ID</option>
+                    <option value="v1">Violation 1</option>
+                    <option value="v2">Violation 2</option>
+                    <option value="v3">Violation 3</option>
+                </select>
+                <input type="text" name="student_id" placeholder="Student ID" required />
+                <select name="department" required>
+                    <option value="" disabled selected>Choose Department</option>
+                    <option value="dept1">Department 1</option>
+                    <option value="dept2">Department 2</option>
+                    <option value="dept3">Department 3</option>
+                </select>
+                <button type="submit">Send Report</button>
+            </form>
+        </div>
+
+        <script>
+            const addUserBtn = document.getElementById('add-user-btn');
+            const modal = document.getElementById('add-user-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+
+            const sendReportBtn = document.getElementById('send-report-btn');
+            const modalOverlay = document.getElementById('modal-overlay');
+            const sendReportModal = document.getElementById('send-report-modal');
+            const modalClose = document.getElementById('modal-close');
+    
+            addUserBtn.addEventListener('click', () => {
+                console.log('askjdsakdjhsaaskdjsadadjskldlksajd')
+                modal.style.display = 'flex';
+            });
+    
+            closeModalBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+    
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            // Show modal
+            sendReportBtn.addEventListener('click', () => {
+                console.log('asjhdlahdkjsahdlksa')
+                modalOverlay.style.display = 'block';
+                sendReportModal.style.display = 'block';
+            });
+
+            // Close modal
+            modalClose.addEventListener('click', () => {
+                modalOverlay.style.display = 'none';
+                sendReportModal.style.display = 'none';
+            });
+
+            // Close modal when clicking on overlay
+            modalOverlay.addEventListener('click', () => {
+                modalOverlay.style.display = 'none';
+                sendReportModal.style.display = 'none';
+            });
+        </script>
+
+    </div>
+</body>
+</html>
